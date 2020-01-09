@@ -30,6 +30,10 @@ class ReportController extends Controller
         return view('admin.report', compact('data'));
     }
 
+    public function accReportPage()
+    {
+        return view('admin.acc-report');
+    }
 
     public function getReports(Request $request)
     {
@@ -95,6 +99,24 @@ class ReportController extends Controller
                 $data['order'] = DB::select('select a.updated_at,a.invoice_date,a.invoice_no,a.customer_name,c.title as product_name,c.sku,b.quantity,b.price,b.discount_amount,b.purchase_price from orders a left join order_products b on b.order_id=a.id left join products c on b.product_id=c.id where a.paid_amount>0 and a.updated_at between "'.$request->dateFrom.' 00:00:01" and "'.$request->dateTo.' 23:59:59"  order by a.updated_at desc');
                 
                 return view('admin.report.grossprofit', compact(['data','title','daterange']));
+                break;
+
+            case 'Manufacturing A/C':
+                $data = DB::delete('delete from tmp_trading_accs');
+                $data = DB::insert('insert into tmp_trading_accs select 1 as slno," " AS code, "O/B" AS particulars,ifnull(SUM(inqty*purchase_price-outqty*purchase_price+srtn_qty*purchase_price-prtn_qty*purchase_price),0) AS bal, 1 AS status from stock_ledgers where invoice_date< "'.$request->dateFrom.'" UNION ALL select 2,b.code,concat("Add ",b.title) AS particulars,ifnull(SUM(a.debit-a.credit),0) AS bal ,1 AS status from transacts a , chart_of_accounts b where a.chart_of_account_id = b.id and b.type= "Manufacturing A/C" and a.tr_date between "'.$request->dateFrom.'" AND "'.$request->dateTo.'" GROUP BY b.code,b.title UNION ALL select 3," ","Less C/S" AS particulars,ifnull(SUM(inqty*purchase_price-outqty*purchase_price+srtn_qty*purchase_price-prtn_qty*purchase_price),0) AS bal, (-1) AS status from stock_ledgers where invoice_date<="'.$request->dateTo.'" ');
+                $data = DB::select('select slno,code,particulars,bal from tmp_trading_accs UNION ALL select 4," ","Cost Of Goods Sold" , SUM(bal*status) from tmp_trading_accs');
+                
+                return response()->json($data);
+                break;
+
+            case 'Profit & Loss A/C':
+                $data = DB::delete('delete from tmp_profitlossaccs');
+                $data = DB::insert('insert into tmp_profitlossaccs select 1 as slno,b.code,b.title,SUM(a.credit-a.debit) as bal, 1 as status from transacts a, chart_of_accounts b where a.chart_of_account_id=b.id and b.type="Profit And Loss A/C" and SUBSTRING(b.code,1,1) IN ("3") and a.tr_date BETWEEN "'.$request->dateFrom.'" AND "'.$request->dateTo.'" group by b.code ,b.title UNION ALL select 2 as slno,b.code,b.title,SUM(a.debit-a.credit) as bal , (-1) as status from transacts a, chart_of_accounts b where a.chart_of_account_id=b.id and b.type="Profit And Loss A/C" and SUBSTRING(b.code,1,1) IN ("4") and a.tr_date BETWEEN "'.$request->dateFrom.'" AND "'.$request->dateTo.'" group by b.code,b.title UNION ALL select 4," ",  "LESS Cost Of Goods Sold", SUM(bal*status) , (-1) from tmp_trading_accs');
+                $data = DB::delete('delete from tmpfinal_profitaccs');
+                $data = DB::insert('insert into tmpfinal_profitaccs select slno,code,particulars,bal from tmp_profitlossaccs UNION ALL select 5," ","NET PROFIT/LOSS" , SUM(bal*status) from tmp_profitlossaccs');
+                $data = DB::select('select * from tmpfinal_profitaccs');
+
+                return response()->json($data);
                 break;
         }
      }

@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/supplierdue/{id}', 'PurchasePaymentController@supplierDue');
 
 	Route::get('/reports', 'ReportController@reportPage');
+	Route::get('/acc-reports', 'ReportController@accReportPage');
 	Route::post('/q/reports', 'ReportController@getReports');
 });
 
