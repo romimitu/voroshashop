@@ -160,9 +160,9 @@
         <div class="row ">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="parallax-content clearfix">
-                    <h1 class="parallaxPrce" style="color:#15a488"> <b>BUY MEDICINES</b> </h1>
-                    <h2 class="uppercase" style="color:#15a488">WE DELIVER MEDICINES AT YOUR DOORSTEP WITHIN 24 HOURS</h2><br>
-                    <h3 style="color:#111; font-weight:500"> YOU SELECT THE DATE AND TIME. WE DELIVER THE PRODUCTS TO YOU. SERVICE AVAILABLE IN Dhaka</h3>
+                    <h1 class="parallaxPrce" style="color:#15a488"> <b>BUY PRODUCTS</b> </h1>
+                    <h2 class="uppercase" style="color:#15a488">WE DELIVER PRODUCTS AT YOUR DOORSTEP WITHIN 24 HOURS</h2><br>
+                    <h3 style="color:#111; font-weight:500"> YOU SELECT THE DATE AND TIME. WE DELIVER THE PRODUCTS TO YOU. SERVICE AVAILABLE IN DHAKA</h3>
                     <div style="clear:both"></div>
                     <a class="btn btn-success btn-lg " href="/shop" id="showall"> <i class="fa fa-shopping-cart"></i> SHOP NOW </a>
                 </div>

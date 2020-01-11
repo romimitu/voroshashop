@@ -25,6 +25,7 @@
                     <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                         <h3> Information </h3>
                         <ul class="list-unstyled footer-nav">
+                            <li><a href="/our-blog"> Blog </a></li>
                             <li><a href="/policy"> Return Policy </a></li>
                             <li><a href="/terms"> Terms &amp; Conditions </a></li>
                             <li><a href="/contact">

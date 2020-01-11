@@ -62,9 +62,7 @@
                 </div>
                 <!--/.navbar-cart-->
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/"> Home </a></li>
-                        <!-- change width of megamenu = use class > megamenu-fullwidth, megamenu-60width, megamenu-40width -->
+                    <ul class="nav navbar-nav col-sm-2">
                         <li class="dropdown megamenu-80width "><a data-toggle="dropdown" class="dropdown-toggle" href="/shop"> SHOP
                                 <b class="caret"> </b> </a>
                             <ul class="dropdown-menu">
@@ -82,17 +80,12 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="/our-blog"> Blog</a></li>
-                        <li><a href="/contact"> Contact Us</a></li>
                     </ul>
-                    <div class="nav navbar-nav navbar-center">
-                          
-                            {!! Form::open(['url' => ['/q/product'], 'method' =>'post','enctype'=>"multipart/form-data"]) !!}
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search Medicines And Product" name="search" style=" text-align:center; background:rgba(255,255,255,.8); color:#111;" id="SearchAllProduct">
-                                <input class="btn btn-success none" type="submit" value="Search">
-                            </div>
-                            {!! Form::close() !!}
+                    <div class="nav navbar-nav navbar-center col-sm-8">
+                        {!! Form::open(['url' => ['/q/product'], 'method' =>'post','enctype'=>"multipart/form-data"]) !!}
+                        <input type="text" class="form-control" placeholder="Search Medicines And Product" name="search" style=" text-align:center;margin-top:10px;" id="SearchAllProduct">
+                        <input class="btn btn-success none" type="submit" value="Search">
+                        {!! Form::close() !!}
                     </div>
                     <!--- this part will be hidden for mobile version -->
                     <div class="nav navbar-nav navbar-right hidden-xs">
