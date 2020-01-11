@@ -31,9 +31,9 @@ class SliderController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->except('image'); 
+        $data = $request->except('image');
         $data['image']=uploadFile('image',$request,'uploads/slider/');
-        $data = Slider::create($data);
+        $slider = Slider::create($data);
         Session::flash('message','Added  Successfully');
         return redirect('/sliders'); 
     }

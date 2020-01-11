@@ -75,6 +75,38 @@
     </footer>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/pace.min.js')}}"></script>
+    <script src="{{asset('js/owl.carousel.min.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            function customPager() {
+                $.each(this.owl.userItems, function (i) {
+                    var pagination1 = $('.owl-controls .owl-pagination > div:first-child');
+                    var pagination = $('.owl-controls .owl-pagination');
+                    $(pagination[i]).append("<div class=' owl-has-nav owl-next'><i class='fa fa-angle-right'></i>  </div>");
+                    $(pagination1[i]).before("<div class=' owl-has-nav owl-prev'><i class='fa fa-angle-left'></i> </div>");
+                });
+            }
+            // YOU MAY ALSO LIKE  carousel
+            $("#SimilarProductSlider").owlCarousel({
+                navigation: false, // Show next and prev buttons
+                afterInit: customPager,
+                afterUpdate: customPager
+            });
+            var SimilarProductSlider = $("#SimilarProductSlider");
+            SimilarProductSlider.owlCarousel({
+                navigation: false, // Show next and prev buttons
+                afterInit: customPager,
+                afterUpdate: customPager
+            });
+            // Custom Navigation Events
+            $("#SimilarProductSlider .owl-next").click(function () {
+                SimilarProductSlider.trigger('owl.next');
+            })
+            $("#SimilarProductSlider .owl-prev").click(function () {
+                SimilarProductSlider.trigger('owl.prev');
+            })
+        });
+    </script>
     <script>
 	    var ph = "Search Medicines And Product",
 	        searchBar = $('#SearchAllProduct'),

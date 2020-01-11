@@ -78,6 +78,12 @@
                                 {!! Form::open(['url' => '/chartofaccounts', 'method' =>'post', 'class'=>'form-horizontal','enctype'=>"multipart/form-data"]) !!}
                                 <div class="modal-body">
                                     <div class="form-group">
+                                        <label class="col-sm-4 control-label">Payment Type</label>
+                                        <div class="col-sm-8">
+                                        {!! Form::select('pay_type', ['Payment' => 'Payment', 'Receive' => 'Receive'],null, ['class'=> 'form-control']) !!}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-sm-4 control-label">Chart Of A/C Name</label>
                                         <div class="col-sm-8">
                                         {!! Form::text('title', null, ['class'=> 'form-control']) !!}
@@ -112,6 +118,12 @@
                                 </div>
                                 {!! Form::open(['url' => '', 'method' =>'PATCH', 'id'=>'editForm', 'class'=>'form-horizontal','enctype'=>"multipart/form-data"]) !!}
                                 <div class="modal-body">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Payment Type</label>
+                                        <div class="col-sm-8">
+                                        {!! Form::select('pay_type', ['Payment' => 'Payment', 'Receive' => 'Receive'],null, ['class'=> 'form-control txtPayType']) !!}
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label class="col-sm-4 control-label">A/C Code</label>
                                         <div class="col-sm-8">
@@ -161,6 +173,7 @@
             $('.txttitle').val(data.title);
             $('.txttype').val(data.type);
             $('.txtvalid').val(data.status);
+            $('.txtPayType').val(data.pay_type);
         }) 
     }
 </script>

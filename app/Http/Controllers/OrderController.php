@@ -55,7 +55,7 @@ class OrderController extends Controller
         DB::transaction(function () use ($order) {            
             if(request()->input('payment_status') == 'Paid'){
                 $paidAmt = $order->total_amount + $order->shipping_fee;
-                insertIntoTransact('4', 'Payment', 0, $paidAmt, 'Sales Againts : '.$order->invoice_no.' ', $order->invoice_no, 'Sales Collection');
+                insertIntoTransact('3', 'Payment', 0, $paidAmt, 'Sales Againts : '.$order->invoice_no.' ', $order->invoice_no, 'Sales Collection');
             }else{
                 $paidAmt = 0;
                 DB::table("transacts")->where("ref_no", $order->invoice_no)->delete();

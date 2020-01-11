@@ -39,12 +39,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Sub Title</label>
-                                        <div class="col-sm-10">
-                                            {!! Form::text('subtitle',isset($feature->subtitle) ? $feature->subtitle : null, ['class'=> 'form-control']) !!}
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="col-sm-2 control-label">Page Link</label>
                                         <div class="col-sm-10">
                                             {!! Form::text('page_link',isset($feature->page_link) ? $feature->page_link : null, ['class'=> 'form-control']) !!}
@@ -54,6 +48,15 @@
                                         <label class="col-sm-2 control-label">Image</label>
                                         <div class="col-sm-10">
                                             {!! Form::file('image', ['class'=> 'form-control']) !!}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Status</label>
+                                        <div class="col-sm-10">
+                                            <select name="status" class="form-control">
+                                                <option value="1" {{ $feature->status == 1 ? 'selected' : '' }}>Publish</option>
+                                                <option value="0" {{ $feature->status == 0 ? 'selected' : '' }}>Hide</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

@@ -28,7 +28,7 @@ class TransactController extends Controller
 
     public function create()
     {
-        $transacts = ChartOfAccount::select('title','id','code')->get();
+        $transacts = ChartOfAccount::select('title','id','code')->where('status',1)->get();
         return view('admin.transact.create', compact('transacts'));
     }
 

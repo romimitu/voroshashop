@@ -35,7 +35,8 @@
                                     <tr>
                                         <th class="col-sm-1">Sl</th>
                                         <th class="col-sm-3">Title</th>
-                                        <th class="col-sm-4">Sub Title</th>
+                                        <th class="col-sm-1">Status</th>
+                                        <th class="col-sm-3">Link</th>
                                         <th class="col-sm-2">Image</th>
                                         <th class="col-sm-2">Action</th>
                                     </tr>
@@ -45,7 +46,8 @@
                                     <tr>
                                         <td>{{$index +1}}</td>
                                         <td>{{$feature->title}}</td>
-                                        <td>{{$feature->subtitle}}</td>
+                                        <td>{{$feature->status}}</td>
+                                        <td>{{$feature->page_link}}</td>
                                         <td><img src="/{{$feature->image}}" class="img-responsive" height="120px"></td>
                                         <td>
                                             <a href="{{ url('/features/'.$feature->id.'/edit') }}"><i class="fa fa-edit btn-primary btn btn-sm"></i></a>
@@ -82,12 +84,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-4 control-label">Sub Title</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="subtitle">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="col-sm-4 control-label">Page Link</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="page_link">
@@ -97,6 +93,15 @@
                                         <label class="col-sm-4 control-label">Image</label>
                                         <div class="col-sm-8">
                                             {!! Form::file('image', ['class'=> 'form-control']) !!}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Status</label>
+                                        <div class="col-sm-8">
+                                            <select name="status" class="form-control">
+                                                <option value="1">Publish</option>
+                                                <option value="0">Hide</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

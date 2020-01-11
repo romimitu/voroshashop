@@ -25,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer('frontend.welcome','App\Http\ViewComposer\PublicComposer@getRandomProduct');
+        View::composer('frontend.welcome','App\Http\ViewComposer\PublicComposer@getFeatures');
+        View::composer('frontend.welcome','App\Http\ViewComposer\PublicComposer@getSlider');
         View::composer('frontend.profile.sidebar','App\Http\ViewComposer\PublicComposer@getUser');
         View::composer(['frontend.product','frontend.welcome','frontend.layouts.header','frontend.layouts.footer'],'App\Http\ViewComposer\PublicComposer@getCategory');
         View::composer(['frontend.layouts.header'],'App\Http\ViewComposer\PublicComposer@getCartData');

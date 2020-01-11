@@ -71,7 +71,7 @@ class PurchaseController extends Controller
             ]);
             
             if($request->paid_amount>0){
-                insertIntoTransact('4', 'Payment', $request->paid_amount, 0, 'Purchase Againts : '.$invoice_no.' ', $invoice_no, 'Purchase');
+                insertIntoTransact('1', 'Payment', $request->paid_amount, 0, 'Purchase Againts : '.$invoice_no.' ', $invoice_no, 'Purchase');
             }
 
             foreach ($request->products as $key=>$data) {

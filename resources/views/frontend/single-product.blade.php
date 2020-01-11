@@ -1,9 +1,6 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-<link href="https://www.emedix.in/assets/css/owl.carousel.css" rel="stylesheet">
-<link href="https://www.emedix.in/assets/css/owl.theme.css" rel="stylesheet">
-
 <div class="container main-container headerOffset">
     <div class="row">
         <div class="breadcrumbDiv col-lg-12">
@@ -88,7 +85,7 @@
                     <div class="description">
                         <h4><a href="{{ url('product', [$product->product_id, str_slug($product->title)] )}}">{{$product->title}}</a></h4>
 
-                        <div class="price"><span><i class="fa fa-inr" aria-hidden="true"></i> {{$product->sales_price}}</span></div>
+                        <div class="price"><span>৳ {{$product->sales_price}}</span></div>
                     </div>
                 </div>
             </div>
@@ -98,49 +95,4 @@
     <div style="clear:both"></div>
 </div>
 <div class="gap"></div>
-
-
-
-<script src="https://www.emedix.in/assets/js/owl.carousel.min.js"></script>
-<script>
-
-$(document).ready(function () {
-    function customPager() {
-        $.each(this.owl.userItems, function (i) {
-            var pagination1 = $('.owl-controls .owl-pagination > div:first-child');
-            var pagination = $('.owl-controls .owl-pagination');
-            $(pagination[i]).append("<div class=' owl-has-nav owl-next'><i class='fa fa-angle-right'></i>  </div>");
-            $(pagination1[i]).before("<div class=' owl-has-nav owl-prev'><i class='fa fa-angle-left'></i> </div>");
-        });
-    }
-
-
-// YOU MAY ALSO LIKE  carousel
-
-    $("#SimilarProductSlider").owlCarousel({
-        navigation: false, // Show next and prev buttons
-        afterInit: customPager,
-        afterUpdate: customPager
-    });
-
-
-    var SimilarProductSlider = $("#SimilarProductSlider");
-    SimilarProductSlider.owlCarousel({
-        navigation: false, // Show next and prev buttons
-        afterInit: customPager,
-        afterUpdate: customPager
-    });
-
-    // Custom Navigation Events
-    $("#SimilarProductSlider .owl-next").click(function () {
-        SimilarProductSlider.trigger('owl.next');
-    })
-
-    $("#SimilarProductSlider .owl-prev").click(function () {
-        SimilarProductSlider.trigger('owl.prev');
-    })
-
-});
-
-</script>
 @endsection

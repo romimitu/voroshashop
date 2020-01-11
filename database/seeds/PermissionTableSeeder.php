@@ -78,6 +78,10 @@ class PermissionTableSeeder extends Seeder
             // 'transact-create',
             // 'transact-edit',
             // 'transact-delete',
+            // 'slider-list',
+            // 'slider-create',
+            // 'slider-edit',
+            // 'slider-delete',
         ];
  
  

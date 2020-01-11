@@ -40,7 +40,7 @@
                             <table class="table table-striped table-hover table-bordered">
                                 <thead id="input-entry">
                                     <tr>
-                                        <th class="col-sm-5"> Product </th>
+                                        <th class="col-sm-5"> Chart Of A/C </th>
                                         <th class="col-sm-5"> Description </th>
                                         <th class="col-sm-1"> Amount(Tk.) </th>
                                         <th class="col-sm-1"> Action </th>

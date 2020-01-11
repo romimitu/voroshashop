@@ -1,6 +1,14 @@
 @extends('admin.master.layout')
 
 @section('content')
+    <style>
+        .rpt-area {display: none;}
+        .rpt-area tbody tr:last-child {background: #E91E63 !important;font-weight: 800;color: #fff;text-align: right;}
+        .subCode {background-color: #f5f8fc;}
+        .subCode td:first-child {text-align: right;}
+        .mainCode td {background: #ddd;font-weight: 800;color: #000;}
+    </style>
+
     <section class="content">
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
@@ -34,6 +42,19 @@
                         </div>
                     </div>
                 </div>
+                <div class="box box-info rpt-area">
+                    <div class="box-body">
+                        <table class="table table-bordered table-hover table-condensed">
+                            <thead>
+                                <tr class="info">
+                                    <th>Description</th>
+                                    <th class="text-right">Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody class="rptTable"></tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -42,6 +63,7 @@
 @section('script')
 <script>
     function getAccReport() {
+        $(".rpt-area").css('display', 'block');
         var dateFrom = $('#dateFrom').val();
         var dateTo = $('#dateTo').val();
         var reportType = $('#reportType').val();
@@ -51,7 +73,16 @@
             dataType: 'json',
             data: { 'dateFrom': dateFrom,'dateTo':dateTo,'reportType':reportType,'_token': '{{ csrf_token() }}' },
             success: function (data) {
-                console.log(data);
+                $('.rptTable').empty();
+                $.each(data, function (key, item) {
+                    if (item.slno == 1) { classname = "mainCode"; }
+                    else { classname = "subCode"; }
+                    var rows = "<tr class=" + classname + ">"
+                        + "<td>" + item.particulars + "</td>"
+                        + "<td class='text-right'>" + item.bal + "</td>"
+                        + "</tr>";
+                    $('.rptTable').append(rows);
+                });
             },
             error: function (data) {
               console.log('Error:', data);

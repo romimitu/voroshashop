@@ -85,6 +85,15 @@
                         <li><a href="/our-blog"> Blog</a></li>
                         <li><a href="/contact"> Contact Us</a></li>
                     </ul>
+                    <div class="nav navbar-nav navbar-center">
+                          
+                            {!! Form::open(['url' => ['/q/product'], 'method' =>'post','enctype'=>"multipart/form-data"]) !!}
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search Medicines And Product" name="search" style=" text-align:center; background:rgba(255,255,255,.8); color:#111;" id="SearchAllProduct">
+                                <input class="btn btn-success none" type="submit" value="Search">
+                            </div>
+                            {!! Form::close() !!}
+                    </div>
                     <!--- this part will be hidden for mobile version -->
                     <div class="nav navbar-nav navbar-right hidden-xs">
                         <div class="dropdown  cartMenu "><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-shopping-cart"> </i> <span class="cartRespons"> Cart &nbsp; <span class="cartPrice">{{$total ?? 0}}</span> </span> <b class="caret"> </b> </a>

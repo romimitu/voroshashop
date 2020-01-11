@@ -53,7 +53,7 @@
           <ul class="treeview-menu">
             <li><a href="/chartofaccounts"><i class="fa fa-circle-o"></i>Chart Of A/C</a></li>
             <li><a href="/transacts"><i class="fa fa-circle-o"></i>Voucher Entry</a></li>
-            <li><a href="/acc-reports"><i class="fa fa-circle-o"></i>Stock Return</a></li>
+            <li><a href="/acc-reports"><i class="fa fa-circle-o"></i>Report</a></li>
           </ul>
         </li>
         <li><a href="/reports"><i class="fa fa-bar-chart"></i> <span>Reports</span></a></li>

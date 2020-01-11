@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{!!asset('css/bootstrap.min.css')!!}">
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/frontend.css')}}">
+    <link href="{{asset('css/owl.carousel.css')}}" rel="stylesheet">
+    <link href="{{asset('css/owl.theme.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <script src="{{asset('js/jquery.min.js')}}"></script>
 </head>

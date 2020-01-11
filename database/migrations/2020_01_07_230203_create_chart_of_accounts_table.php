@@ -14,6 +14,7 @@ class CreateChartOfAccountsTable extends Migration
             $table->string('title', 32);
             $table->string('type', 56);
             $table->tinyInteger('status')->default(1);
+            $table->string('pay_type', 56);
             $table->timestamps();
         });
     }

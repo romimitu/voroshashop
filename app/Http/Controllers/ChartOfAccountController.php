@@ -40,9 +40,15 @@ class ChartOfAccountController extends Controller
         if($request->input('type')=='Profit And Loss A/C'){
             $lastid = DB::table('chart_of_accounts')->where('type','Profit And Loss A/C')->pluck('id')->last()+1;
             $invoiceid =now()->format('md').$lastid;
-            $invoice_no = "30".str_pad($invoiceid + 1, 5, "0", STR_PAD_LEFT);
-            $data['code'] =$invoice_no;
-        }if($request->input('type')=='Manufacturing A/C'){
+            if($request->input('pay_type')=='Receive'){
+                $invoice_no = "30".str_pad($invoiceid + 1, 5, "0", STR_PAD_LEFT);
+                $data['code'] =$invoice_no;
+            }else{
+                $invoice_no = "40".str_pad($invoiceid + 1, 5, "0", STR_PAD_LEFT);
+                $data['code'] =$invoice_no;
+            }
+
+        }elseif($request->input('type')=='Manufacturing A/C'){
             $lastid = DB::table('chart_of_accounts')->where('type','Profit And Loss A/C')->pluck('id')->last()+1;
             $invoiceid =now()->format('md').$lastid;
             $invoice_no = "40".str_pad($invoiceid + 1, 5, "0", STR_PAD_LEFT);

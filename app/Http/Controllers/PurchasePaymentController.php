@@ -63,7 +63,7 @@ class PurchasePaymentController extends Controller
             ]);
 
             if($request->paid_amount>0){
-                insertIntoTransact('4', 'Payment', $request->paid_amount, 0, 'Purchase Payment Againts : '.$invoice_no.' ', $invoice_no, 'Purchase Payment');
+                insertIntoTransact('1', 'Payment', $request->paid_amount, 0, 'Purchase Payment Againts : '.$invoice_no.' ', $invoice_no, 'Purchase Payment');
             }
         });
 

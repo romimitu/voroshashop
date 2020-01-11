@@ -8,6 +8,7 @@ use App\Blog;
 use App\User;
 use App\Category;
 use App\About;
+use App\Feature;
 use Illuminate\View\View;
 use DB;
 use Auth;
@@ -21,10 +22,26 @@ class PublicComposer
         $view->with('aboutinfo', $aboutinfo)->with('roles', $roles);
     }
 
-    public function getProductInfo(View $view, $id)
+    public function getSlider(View $view)
     {
-        $productInfo = Product::orderBy('created_at', 'desc')->where('id',$id)->get();
-        $view->with('productInfo', $productInfo);
+        $sliders = Slider::orderBy('created_at', 'desc')->where('status',1)->get();
+        $view->with('sliders', $sliders);
+    }
+    
+    public function getFeatures(View $view)
+    {
+        $features = Feature::orderBy('created_at', 'desc')->where('status',1)->paginate(2);
+        $view->with('features', $features);
+    }
+
+    public function getRandomProduct(View $view)
+    {
+        $products = DB::table('vw_productdetails')
+        ->where('status', '1')
+        ->orderBy('product_id', 'desc')
+        ->inRandomOrder()
+        ->paginate(10);
+        $view->with('products', $products);
     }
     public function getUser(View $view)
     {
@@ -39,7 +56,8 @@ class PublicComposer
 
         $categories = Category::where('child_status',1)
         ->where('status', 1)
-        ->paginate(9);
+        ->inRandomOrder()
+        ->paginate(8);
         $allCategories = DB::table('categories')
         ->where('status', 1)
         ->where('child_status', 1)

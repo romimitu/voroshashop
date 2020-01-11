@@ -1,124 +1,124 @@
 .trees,
 .trees ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .trees ul {
-    margin-left: 1em;
-    position: relative;
+  margin-left: 1em;
+  position: relative;
 }
 .trees ul ul {
-    margin-left: 0.5em;
+  margin-left: 0.5em;
 }
 .trees ul:before {
-    content: "";
-    display: block;
-    width: 0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    border-left: 1px solid;
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid;
 }
 .trees li {
-    margin: 0;
-    padding: 0 1em;
-    line-height: 2em;
-    color: #369;
-    font-weight: 700;
-    position: relative;
+  margin: 0;
+  padding: 0 1em;
+  line-height: 2em;
+  color: #369;
+  font-weight: 700;
+  position: relative;
 }
 .trees ul li:before {
-    content: "";
-    display: block;
-    width: 10px;
-    height: 0;
-    border-top: 1px solid;
-    margin-top: -1px;
-    position: absolute;
-    top: 1em;
-    left: 0;
+  content: "";
+  display: block;
+  width: 10px;
+  height: 0;
+  border-top: 1px solid;
+  margin-top: -1px;
+  position: absolute;
+  top: 1em;
+  left: 0;
 }
 .trees ul li:last-child:before {
-    background: #fff;
-    height: auto;
-    top: 1em;
-    bottom: 0;
+  background: #fff;
+  height: auto;
+  top: 1em;
+  bottom: 0;
 }
 .indicator {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 .trees li a {
-    text-decoration: none;
-    color: #369;
+  text-decoration: none;
+  color: #369;
 }
 .trees li button,
 .trees li button:active,
 .trees li button:focus {
-    text-decoration: none;
-    color: #369;
-    border: none;
-    background: transparent;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-    outline: 0;
+  text-decoration: none;
+  color: #369;
+  border: none;
+  background: transparent;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  outline: 0;
 }
 .trees a.trees-action {
-    text-decoration: underline;
-    color: #f29e3a;
+  text-decoration: underline;
+  color: #f29e3a;
 }
 
 .imageThumb {
-    max-height: 75px;
-    border: 2px solid;
-    padding: 1px;
-    cursor: pointer;
+  max-height: 75px;
+  border: 2px solid;
+  padding: 1px;
+  cursor: pointer;
 }
 .pip {
-    display: inline-block;
-    margin: 10px 10px 0 0;
+  display: inline-block;
+  margin: 10px 10px 0 0;
 }
 .remove {
-    display: block;
-    background: #444;
-    border: 1px solid black;
-    color: white;
-    text-align: center;
-    cursor: pointer;
+  display: block;
+  background: #444;
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+  cursor: pointer;
 }
 .remove:hover {
-    background: white;
-    color: black;
+  background: white;
+  color: black;
 }
 
 .none {
-    display: none;
+  display: none;
 }
 .form-group {
-    overflow: hidden;
-    margin-bottom: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
 }
 .text-muted {
-    color: #767474 !important;
+  color: #767474 !important;
 }
 .text-sem-m {
-    font-size: 1.14286rem;
-    line-height: 1.71429rem;
+  font-size: 1.14286rem;
+  line-height: 1.71429rem;
 }
 .text-s {
-    font-size: 0.85714rem;
-    line-height: 1.28571rem;
+  font-size: 0.85714rem;
+  line-height: 1.28571rem;
 }
 table td.action a {
-    float: left;
-    margin-right: 4px;
+  float: left;
+  margin-right: 4px;
 }
 .table-scrollable {
-    min-height: 250px;
+  min-height: 250px;
 }
 .table-scrollable table tbody input {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 /* 
@@ -135,110 +135,156 @@ table td.action a {
 
 */
 /* frontend */
+
+.carousel {
+  margin-top: 20px;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 100%;
+  height: 330px;
+}
+.carousel-control {
+  top: 50%;
+
+  /* border 3px, size 40px */
+  border: 3px solid #fff;
+  -webkit-border-radius: 23px;
+  -moz-border-radius: 23px;
+  border-radius: 23px;
+
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  font-size: 60px;
+  font-weight: 100;
+  line-height: 25px;
+  color: #fff;
+  text-align: center;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+/* cancel background image gradient */
+.carousel-control.left-flat {
+  right: auto;
+  left: 15px;
+}
+/* override background image gradient */
+.carousel-control.right-flat {
+  right: 15px;
+  left: auto;
+}
+.feature-item {
+}
+.feature-item img {
+  height: 160px;
+  margin-bottom: 10px;
+}
+
 .disabled {
-    pointer-events: none;
-    background: #eee;
+  pointer-events: none;
+  background: #eee;
 }
 
 .discount-label {
-    color: #ffffff !important;
-    margin-left: 3rem !important;
-    padding: 7px;
-    position: relative;
-    top: -4px;
-    border-radius: 0 4px 4px 0;
+  color: #ffffff !important;
+  margin-left: 3rem !important;
+  padding: 7px;
+  position: relative;
+  top: -4px;
+  border-radius: 0 4px 4px 0;
 }
 .red {
-    background-color: #e80707;
+  background-color: #e80707;
 }
 .discount-label:before {
-    content: "";
-    z-index: 2;
-    position: absolute;
-    top: 40%;
-    right: 100%;
-    width: 5px;
-    height: 5px;
-    opacity: 0.95;
-    background: #ffffff;
-    border-radius: 7px;
-    box-shadow: inset 0.5px 0 rgba(0, 0, 0, 0.6);
+  content: "";
+  z-index: 2;
+  position: absolute;
+  top: 40%;
+  right: 100%;
+  width: 5px;
+  height: 5px;
+  opacity: 0.95;
+  background: #ffffff;
+  border-radius: 7px;
+  box-shadow: inset 0.5px 0 rgba(0, 0, 0, 0.6);
 }
 .discount-label:after {
-    right: 100%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    border-color: rgba(136, 183, 213, 0);
-    border-width: 14px;
-    top: 12px;
-    margin-top: -12px;
+  right: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-color: rgba(136, 183, 213, 0);
+  border-width: 14px;
+  top: 12px;
+  margin-top: -12px;
 }
 .red:after {
-    border-right-color: #e80707;
+  border-right-color: #e80707;
 }
 .pd-description li {
-    list-style: inside;
+  list-style: inside;
 }
 #quick-cart-body section {
-    border-bottom: 1px solid #ddd;
-    padding: 5px 0px;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 0px;
 }
 #cart-view {
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    z-index: 99999;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 99999;
 }
 #cart-view a .badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    height: 28px;
-    width: 28px;
-    background: #e94b35;
-    color: #fff;
-    padding: 6px;
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 50%;
-    text-indent: 0;
-    -webkit-transition: -webkit-transform 0.2s 0.5s;
-    transition: -webkit-transform 0.2s 0.5s;
-    transition: transform 0.2s 0.5s;
-    transition: transform 0.2s 0.5s, -webkit-transform 0.2s 0.5s;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  height: 28px;
+  width: 28px;
+  background: #e94b35;
+  color: #fff;
+  padding: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 50%;
+  text-indent: 0;
+  -webkit-transition: -webkit-transform 0.2s 0.5s;
+  transition: -webkit-transform 0.2s 0.5s;
+  transition: transform 0.2s 0.5s;
+  transition: transform 0.2s 0.5s, -webkit-transform 0.2s 0.5s;
 }
 #cart-view a i {
-    font-size: 30px;
-    padding: 20px;
-    background: #fff;
-    color: #373d54;
-    box-shadow: 0px 0px 20px 0px #999;
-    border-radius: 5px;
+  font-size: 30px;
+  padding: 20px;
+  background: #fff;
+  color: #373d54;
+  box-shadow: 0px 0px 20px 0px #999;
+  border-radius: 5px;
 }
 .cartitems {
-    box-shadow: 0px 0px 20px 0px #999;
-    border-radius: 5px;
-    width: 400px;
+  box-shadow: 0px 0px 20px 0px #999;
+  border-radius: 5px;
+  width: 400px;
 }
 .quick-cart-view .panel-body {
-    padding: 10px 0px;
+  padding: 10px 0px;
 }
 .item-details ul li {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .form-control {
-    height: 26px;
-    padding: 2px 6px;
-    font-size: 14px;
-    border: 1px solid #54a8dd;
-    border-radius: 0;
+  height: 26px;
+  padding: 2px 6px;
+  font-size: 14px;
+  border: 1px solid #54a8dd;
+  border-radius: 0;
 }
 
 .del_cart {
-    color: #e91e63;
-    cursor: pointer;
+  color: #e91e63;
+  cursor: pointer;
 }
